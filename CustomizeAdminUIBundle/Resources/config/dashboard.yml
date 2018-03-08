@@ -1,0 +1,12 @@
+services:
+    ezplatform.adminui.dashboard.playlist:
+        parent: EzSystems\EzPlatformAdminUi\Component\TwigComponent
+        arguments:
+            $template: 'EzSystemsCustomizeAdminUIBundle:dashboard/block:playlistBlock.html.twig'
+        tags:
+            - { name: ezplatform.admin_ui.component, group: 'dashboard-blocks' }
+    EzSystems\CustomizeAdminUIBundle\Tab\Dashboard\PlaylistTab:
+        parent: EzSystems\EzPlatformAdminUi\Tab\AbstractTab
+        public: false
+        tags:
+            - { name: ezplatform.tab, group: dashboard-playlists }

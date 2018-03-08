@@ -1,0 +1,14 @@
+imports:
+    - dashboard.yml
+    - { resource: controllers.yml }
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    EzSystems\CustomizeAdminUIBundle\EventListener\ConfigureMenuListener:
+        public: true
+        tags:
+          - { name: kernel.event_listener, event: ezplatform_admin_ui.menu_configure.main_menu, method: onMenuConfigure }
+    EzSystems\CustomizeAdminUIBundle\lib\Form\Factory\FormFactory: ~
